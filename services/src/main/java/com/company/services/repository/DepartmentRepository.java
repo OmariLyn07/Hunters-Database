@@ -1,4 +1,4 @@
-package repository;
+package com.company.services.repository;
 
 public interface DepartmentRepository {
 }

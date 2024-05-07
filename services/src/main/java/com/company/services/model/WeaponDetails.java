@@ -1,4 +1,4 @@
 package com.company.services.model;
 
-public class Employee {
+public class WeaponDetails {
 }

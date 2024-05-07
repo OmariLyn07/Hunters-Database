@@ -13,6 +13,6 @@ public interface HunterRepository extends CrudRepository<Hunter, Long> {
     @Query("SELECT h FROM Hunter h")
     public List<Hunter> getAllHunters();
 
-    @Query("SELECT new com.company.services.model.HunterDetails(h.huntingID, h.fName, h.lName, h.address, b) FROM Hunter h JOIN h.blacksmith b")
-    List<HunterDetails> findAllWithBlacksmiths();
+    @Query("SELECT new com.company.services.model.HunterDetails(h.huntingID, h.name, h.rank, h.rating, l) FROM Hunter h JOIN h.locale l")
+    List<HunterDetails> findAllWithLocales();
 }

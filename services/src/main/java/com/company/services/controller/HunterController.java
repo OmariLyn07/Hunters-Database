@@ -31,8 +31,8 @@ public class HunterController {
         return ResponseEntity.ok(hunters);
     }
 
-    @GetMapping("/with-blacksmiths")
-    public ResponseEntity<List<HunterDetails>> getAllHuntersWithBlacksmiths() {
-        return ResponseEntity.ok(hunterService.getAllHuntersWithBlacksmiths());
+    @GetMapping("/with-locales")
+    public ResponseEntity<List<HunterDetails>> getAllHuntersWithLocales() {
+        return ResponseEntity.ok(hunterService.getAllHuntersWithLocales());
     }
 }

@@ -35,7 +35,7 @@ public class HunterService {
         }
     }
 
-    public List<HunterDetails> getAllHuntersWithBlacksmiths() {
-        return Streamable.of(hunterRepository.findAllWithBlacksmiths()).toList();
+    public List<HunterDetails> getAllHuntersWithLocales() {
+        return Streamable.of(hunterRepository.findAllWithLocales()).toList();
     }
 }

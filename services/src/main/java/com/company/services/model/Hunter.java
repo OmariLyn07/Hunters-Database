@@ -15,9 +15,9 @@ public class Hunter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long huntingID;
-    private String fName;
-    private String lName;
-    private String address;
+    private String name;
+    private Integer rank;
+    private Double rating;
 
     @Column(name = "id")
     private Long id;
@@ -26,5 +26,5 @@ public class Hunter {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id", referencedColumnName = "id",
             insertable = false, updatable = false)
-    private Blacksmith blacksmith;
+    private Locale locale;
 }

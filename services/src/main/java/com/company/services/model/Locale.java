@@ -5,11 +5,12 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "blacksmith")
-public class Blacksmith {
+@Table(name = "locale")
+public class Locale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String name;
     private Long id;
-    private String location;
+    private String terrain;
+    private String name;
+    private String mon_types;
 }

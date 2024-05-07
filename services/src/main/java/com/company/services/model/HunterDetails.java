@@ -7,8 +7,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class HunterDetails {
     private Long huntingID;
-    private String fName;
-    private String lName;
-    private String address;
-    private Blacksmith blacksmith;
+    private String name;
+    private Integer rank;
+    private Double rating;
+    private Locale locale;
 }

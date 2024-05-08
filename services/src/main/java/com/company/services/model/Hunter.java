@@ -18,6 +18,7 @@ public class Hunter {
     private String name;
     private Integer rank;
     private Double rating;
+    private String target;
 
     @Column(name = "id")
     private Long id;

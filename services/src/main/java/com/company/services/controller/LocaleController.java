@@ -34,6 +34,12 @@ public class LocaleController {
         return ResponseEntity.ok(savedLocales);  // Return the saved Locale
     }
 
+    @DeleteMapping
+    public ResponseEntity<Locale> deleteLocale(@RequestBody Locale locale) {
+        Locale deletedLocale = localeService.deleteLocale(locale);
+        return ResponseEntity.ok(deletedLocale);
+    }
+
     // Endpoint to retrieve all Locales
     @GetMapping
     public ResponseEntity<List<Locale>> getAllLocales() {

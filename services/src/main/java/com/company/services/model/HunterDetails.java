@@ -10,5 +10,6 @@ public class HunterDetails {
     private String name;
     private Integer rank;
     private Double rating;
+    private String target;
     private Locale locale;
 }

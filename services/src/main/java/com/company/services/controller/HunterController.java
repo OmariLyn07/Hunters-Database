@@ -3,7 +3,7 @@ package com.company.services.controller;
 import com.company.services.model.Hunter;
 import com.company.services.model.HunterDetails;
 import com.company.services.services.HunterService;
-import jakarta.websocket.server.PathParam;
+import jakarta.websocket.server.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,8 +45,8 @@ public class HunterController {
     }
 
     @GetMapping("/with-rating")
-    public ResponseEntity<Hunter> getAllHuntersWithMaxRating() {
-        Hunter hunter = hunterService.getMaxRating();
+    public ResponseEntity<List<Hunter>> getAllHuntersWithMaxRating() {
+        List<Hunter> hunter = hunterService.getMaxRating();
         if(hunter != null) {
             return ResponseEntity.ok(hunter);
         }else{
@@ -55,8 +55,8 @@ public class HunterController {
     }
 
     @GetMapping("/with-rank")
-    public ResponseEntity<Hunter> getAllHuntersWithHighestRank() {
-        Hunter hunter = hunterService.getHighestRank();
+    public ResponseEntity<List<Hunter>> getAllHuntersWithHighestRank() {
+        List<Hunter> hunter = hunterService.getHighestRank();
         if(hunter != null) {
             return ResponseEntity.ok(hunter);
         }else{
@@ -64,10 +64,9 @@ public class HunterController {
         }
     }
 
-    @GetMapping("/{target}")
-    public ResponseEntity<Hunter> getAllHuntersWithTarget(@PathVariable("target") String target) {
-        Optional<Hunter> hunter = hunterService.getTarget(target);
-        return hunter.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    @PutMapping
+    public ResponseEntity<Hunter> updateHunter(@RequestBody Hunter hunter) {
+        Hunter updatedHunter = hunterService.updateHunter(hunter);
+        return ResponseEntity.ok(updatedHunter);
     }
 }

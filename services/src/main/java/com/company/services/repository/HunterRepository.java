@@ -18,11 +18,9 @@ public interface HunterRepository extends CrudRepository<Hunter, Long> {
     List<HunterDetails> findAllWithLocales();
 
     @Query("SELECT DISTINCT h FROM Hunter h WHERE h.rating = (SELECT MAX( rating ) FROM Hunter)")
-    public Hunter findHunterWithMaxRating();
+    public List<Hunter> findHunterWithMaxRating();
 
     @Query("SELECT DISTINCT h FROM Hunter h WHERE h.rank = (SELECT MAX( rank ) FROM Hunter)")
-    public Hunter findHunterWithHighestRank();
+    public List<Hunter> findHunterWithHighestRank();
 
-    @Query
-    Optional<Hunter> findHunterByTarget(String target);
 }

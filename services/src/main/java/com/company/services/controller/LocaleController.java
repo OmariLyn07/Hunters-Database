@@ -1,6 +1,7 @@
 package com.company.services.controller;
 
 import com.company.services.model.Locale;
+import com.company.services.services.HunterService;
 import com.company.services.services.LocaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +14,13 @@ import java.util.Optional;
 @RequestMapping("locales")
 public class LocaleController {
     private final LocaleService localeService;
+    private final HunterService hunterService;
 
     @Autowired
-    public LocaleController(LocaleService localeService) {
+    public LocaleController(LocaleService localeService, HunterService hunterService) {
 
         this.localeService = localeService;
+        this.hunterService = hunterService;
     }
 
     // Endpoint to add a new Locale
@@ -53,5 +56,11 @@ public class LocaleController {
         Optional<Locale> locale = localeService.getLocaleById(id);
         return locale.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());  // Handle not found case
+    }
+
+    @PutMapping
+    public ResponseEntity<Locale> updateLocale(@RequestBody Locale locale) {
+        Locale updatedLocale = localeService.updateLocale(locale);
+        return ResponseEntity.ok(updatedLocale);
     }
 }

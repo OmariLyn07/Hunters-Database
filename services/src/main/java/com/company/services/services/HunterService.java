@@ -49,15 +49,15 @@ public class HunterService {
         return Streamable.of(hunterRepository.findAllWithLocales()).toList();
     }
 
-    public Hunter getMaxRating() {
+    public List<Hunter> getMaxRating() {
         return hunterRepository.findHunterWithMaxRating();
     }
 
-    public Hunter getHighestRank(){
+    public List<Hunter> getHighestRank(){
         return hunterRepository.findHunterWithHighestRank();
     }
 
-    public Optional<Hunter> getTarget(String target){
-        return hunterRepository.findHunterByTarget(target);
+    public Hunter updateHunter(Hunter hunter){
+        return hunterRepository.save(hunter);
     }
 }

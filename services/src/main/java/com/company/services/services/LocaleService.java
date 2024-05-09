@@ -48,4 +48,8 @@ public class LocaleService {
 
         return localeRepository.findById(id);
     }
+
+    public Locale updateLocale(Locale locale) {
+        return localeRepository.save(locale);
+    }
 }
